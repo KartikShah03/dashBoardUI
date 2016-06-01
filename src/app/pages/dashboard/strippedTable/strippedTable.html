@@ -1,0 +1,18 @@
+<div class="vertical-scroll">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="table-id">#</th>
+      <th>Type</th>
+      <th>Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in smartTableData">
+      <td class="table-id">{{item.id}}</td>
+      <td>{{item.type}}</td>
+      <td>{{item.count}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

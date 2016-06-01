@@ -1,0 +1,39 @@
+[{
+  "request": {
+    "url": "^/pie$",
+    "method": "GET",
+    "query": {
+
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "latency": 500,
+    "body": {
+      "pie":[{
+            "color": "#666666",
+            "description": "New Visits",
+            "stats": "257,820",
+            "icon": "person"
+          }, {
+            "color": "#666666",
+            "description": "Purchases",
+            "stats": "$ 89,745",
+            "icon": "money"
+          }, {
+            "color": "#666666",
+            "description": "Active Users",
+            "stats": "278,391",
+            "icon": "face"
+          }, {
+            "color": "#666666",
+            "description": "Returned",
+            "stats": "32,592",
+            "icon": "refresh"
+          }]
+    }
+  }
+}]
