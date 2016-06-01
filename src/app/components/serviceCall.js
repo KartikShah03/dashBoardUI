@@ -36,8 +36,21 @@
 			};
 			return makeDBServerRequest(config,true);
 		}
+
+		function getTotalTransactionDtls(){
+			var config={
+				method: 'GET',
+				url: '/totalTransactionDtls',
+				params:{
+
+				}
+			};
+			return makeDBServerRequest(config,true);
+		}
+
 		return {
-			getPieDtls: getPieDtls
+			getPieDtls: getPieDtls,
+			getTotalTransactionDtls: getTotalTransactionDtls
 		}
 	});
 })();

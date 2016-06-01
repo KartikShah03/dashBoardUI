@@ -9,26 +9,58 @@
       .controller('StrippedTableCtrl', StrippedTableCtrl);
 
   /** @ngInject */
-  function StrippedTableCtrl($scope, $filter, editableOptions, editableThemes) {
+  function StrippedTableCtrl($scope, $filter, editableOptions, editableThemes,serviceCall) {
 
-    $scope.smartTablePageSize = 10;
+    var rspsObj=[];
+    var TotalSum = 0;
+    var sumObj = [];
 
-    $scope.smartTableData = [
+    transactionCount().then(getCount);
+    function transactionCount(){
+      return serviceCall.getTotalTransactionDtls();
+    }
+    function getCount(response){
+      rspsObj = response.data.transactions;
+      
+      for(var i=0;i<rspsObj.length;i++){
+        TotalSum = TotalSum + parseInt(rspsObj[i].value);
+        rspsObj[i].order = parseInt(rspsObj[i].order) + 1;
+      }
+      var totalOrder = 1;
+      sumObj = {value: TotalSum, color: '',highlight: '',label:'Total Transactions', percentage: '', order: totalOrder };
+      rspsObj.push(sumObj);
+      rspsObj.sort(sortFunction);
+
+      function sortFunction(rspsObj, b) {
+          if (rspsObj[5] === b[5]) {
+            console.log(rspsObj[5] +'...........'+b[5]);
+              return 0;
+          }
+          else {
+              console.log(rspsObj[5] +'...........'+b[5]);
+              return (rspsObj[5] < b[5]) ? -1 : 1;
+          }
+      }
+      $scope.smartTableData = rspsObj;
+      
+    }
+
+    /*$scope.smartTableData = [
       {
-        id: 1,
-        type: 'totalTransaction',
-        count: '50000'
+        order: 1,
+        label: 'Total Transaction',
+        value: '50000'
       },
       {
         id: 2,
-        type: 'totalSuccessTransaction',
+        type: 'Total Success Transaction',
         count: '45000'
       },
       {
         id: 3,
-        type: 'totalErrorTransaction',
+        type: 'Total Error Transaction',
         count: '5000'
-      }];
+      }];*/
   }
 
 })();

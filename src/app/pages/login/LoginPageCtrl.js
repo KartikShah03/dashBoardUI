@@ -14,7 +14,7 @@
     $scope.loginDiv = true;
 
     $scope.login = function () {
-      if("kartik" == $scope.pwd){
+      if("Dashboard" == $scope.pwd){
         console.log($scope.pwd)
         console.log('before');
         $http.get("http://demo5533116.mockable.io/sidemenu")
