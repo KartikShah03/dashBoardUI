@@ -1,0 +1,118 @@
+<section ng-controller="searchCtrl">
+ 
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div ba-panel ba-panel-title="SEARCH" ba-panel-class="with-scroll ">
+            
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <form role="form" class="col-lg-8">
+                            <div class="form-group">
+                                <label>Source System</label>
+                                <input class="form-control" ng-model="source">
+                                
+                            </div>
+                            <div class="form-group">
+                                <label>Target System</label>
+                                <input class="form-control" ng-model="target">
+                            </div>
+                                                   
+                                                       
+                             <button type="submit" class="btn btn-default" ng-click="searchResults()">Seach</button>
+                            <button type="reset" class="btn btn-default">Reset</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <form role="form" class="col-lg-8">
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input id="input-date" type="date" class="form-control">
+                                
+                            </div>
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input id="input-date" type="date" class="form-control">
+                            </div>
+                            
+                        </form>
+                    </div>
+
+                     <div class="col-lg-4">
+                        <form role="form" class="col-lg-8">
+                            <div class="form-group">
+                                <label>State</label>
+
+                               <select class="form-control">
+                                  <option>OK</option>
+                                  <option>ERROR</option>
+                                </select>
+
+                                </div>
+                            <div class="form-group">
+                                <label>Identifier</label>
+                                <input class="form-control">
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+
+             <div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b>Search Result</b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Service ID</th>
+                                <th>Source System</th>
+                                <th>Target System</th>
+                                <th>State</th>
+                                <th>File Name/Identifier</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="data in tableData">
+                                <td>{{data.service_ID}}</td>
+                                <td>{{data.source_System}}</td>
+                                <td>{{data.target_System}}</td>
+                                <td class="center">{{data.state}}</td>
+                                <td class="center">{{data.file_Name_Identifie}}</td>
+                                <td class="center">{{data.date}}</td>
+                            </tr>
+                                                                               </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+                </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+  
+</section>

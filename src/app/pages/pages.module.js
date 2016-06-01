@@ -9,7 +9,8 @@
     'ui.router',
     'Dashboard.pages.dashboard',
     'Dashboard.pages.charts',
-    'Dashboard.pages.login'
+    'Dashboard.pages.login',
+    'Dashboard.pages.osb'
   ])
       .config(routeConfig);
 
