@@ -1,7 +1,3 @@
-/**
- * @author v.lugovsky
- * created on 03.05.2016
- */
 (function () {
   'use strict';
 
