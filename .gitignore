@@ -1,7 +1,7 @@
 node_modules
 gulp.1
 build
-.temp
+/.temp
 /src/release
 /release
 /bower_components
