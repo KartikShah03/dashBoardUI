@@ -40,6 +40,10 @@
       {label: "In-Store Sales", value: 30},
       {label: "Mail-Order Sales", value: 20}
     ];
+    $scope.doShow = false;
+    $scope.searchResults = function(){
+      $scope.doShow = true;
+    }
 
     angular.element($window).bind('resize', function () {
       //$window.Morris.Grid.prototype.redraw();

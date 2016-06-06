@@ -74,7 +74,12 @@
 
     $scope.simpleBarOptions = {
       fullWidth: true,
-      height: "300px"
+      height: "300px",
+      reverseData: true,
+      horizontalBars: true,
+      axisY: {
+        offset: 70
+      }
     };
 
     $scope.multiBarData = {

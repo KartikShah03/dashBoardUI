@@ -48,9 +48,21 @@
 			return makeDBServerRequest(config,true);
 		}
 
+		function getTodayTransactionDtls(){
+			var config={
+				method: 'GET',
+				url: '/todayTransactionDtls',
+				params:{
+
+				}
+			};
+			return makeDBServerRequest(config,true);
+		}
+
 		return {
 			getPieDtls: getPieDtls,
-			getTotalTransactionDtls: getTotalTransactionDtls
+			getTotalTransactionDtls: getTotalTransactionDtls,
+			getTodayTransactionDtls: getTodayTransactionDtls
 		}
 	});
 })();

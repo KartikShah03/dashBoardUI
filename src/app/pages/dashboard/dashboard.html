@@ -3,16 +3,30 @@
 <div class="row">
   <div class="col-lg-6 col-md-12 col-sm-12"
        ba-panel
-       ba-panel-title="OSB total Transactions"
+       ba-panel-title="Failed and Success count"
        ba-panel-class="medium-panel traffic-panel">
     <traffic-chart></traffic-chart>
   </div>
   <div class="col-lg-6 col-md-12 col-sm-12"
        ba-panel
-       ba-panel-title="Transcation Details"
+       ba-panel-title="Top 10 SUCCESS Interfacaes"
        ba-panel-class="medium-panel">
-    <stripped-Table></stripped-Table>
+    <!--<stripped-Table></stripped-Table>-->
+    <interface-Bar></interface-Bar>
   </div>
 </div>
-  
-
+ <div class="row">
+  <div class="col-lg-6 col-md-12 col-sm-12"
+       ba-panel
+       ba-panel-title="Failed and Success count"
+       ba-panel-class="medium-panel traffic-panel">
+    <traffic-Day-Chart></traffic-Day-Chart>
+  </div>
+  <div class="col-lg-6 col-md-12 col-sm-12"
+       ba-panel
+       ba-panel-title="Top 10 FAILUER Interfaces"
+       ba-panel-class="medium-panel">
+    <!--<stripped-Table></stripped-Table>-->
+    <failuer-Interface-Bar></failuer-Interface-Bar>
+  </div>
+</div>
