@@ -9,14 +9,31 @@
     .controller('interfaceCtrl', interfaceCtrl);
 
   /** @ngInject */
-  function interfaceCtrl($scope, $timeout, baConfig) {
+  function interfaceCtrl($scope, $timeout, baConfig, serviceCall) {
 
-    $scope.simpleBarData = {
+    getTransactionData().then(showData);
+
+    function getTransactionData(){
+      return serviceCall.successTrans();
+    }
+
+    function showData(response){
+      $scope.simpleBarData = {
+      labels: response.data.labels,
+      series: response.data.series
+    };
+    $timeout(function(){
+      new Chartist.Bar('#simple-tbar', $scope.simpleBarData, $scope.simpleBarOptions);
+    });
+    var chart = new Chartist.Bar('.ct-chart', $scope.simpleBarData, $scope.simpleBarOptions);
+    }
+
+    /*$scope.simpleBarData = {
       labels: ['CAMS_CPC2_003', 'CAMS_CPC2_001', 'CAMS_CPC2_003', 'CAMS_CPC2_005', 'CAMS_CPC2_009', 'CPC2_ICPSBL_001', 'CAMS_NOVASBL_023', 'ICPBRM_CAMS_005', 'GEMS_PCMS_001', 'IME_ICPBRM_005'],
       series: [
         [65, 58, 49, 38, 30, 24, 20, 17, 11, 5]
       ]
-    };
+    };*/
 
     $scope.simpleBarOptions = {
       height: "300px",

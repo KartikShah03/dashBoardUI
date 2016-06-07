@@ -59,10 +59,34 @@
 			return makeDBServerRequest(config,true);
 		}
 
+		function successTrans(){
+			var config={
+				method: 'GET',
+				url: '/getSuccessTrans',
+				params:{
+
+				}
+			};
+			return makeDBServerRequest(config,true);
+		}
+
+		function failuerTrans(){
+			var config={
+				method: 'GET',
+				url: '/getFailedTrans',
+				params:{
+
+				}
+			};
+			return makeDBServerRequest(config,true);
+		}
+
 		return {
 			getPieDtls: getPieDtls,
 			getTotalTransactionDtls: getTotalTransactionDtls,
-			getTodayTransactionDtls: getTodayTransactionDtls
+			getTodayTransactionDtls: getTodayTransactionDtls,
+			successTrans: successTrans,
+			failuerTrans: failuerTrans
 		}
 	});
 })();
