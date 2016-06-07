@@ -1,0 +1,42 @@
+[{
+  "request": {
+    "url": "^/getSuccessTrans$",
+    "method": "GET",
+    "query": {
+
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "latency": 500,
+    "body": {
+            "labels": [
+              "CAMS_CPC2_003",
+              "CAMS_CPC2_001",
+              "CAMS_CPC2_003",
+              "CAMS_CPC2_005",
+              "CAMS_CPC2_009",
+              "CPC2_ICPSBL_001",
+              "CAMS_NOVASBL_023",
+              "ICPBRM_CAMS_005",
+              "GEMS_PCMS_001",
+              "IME_ICPBRM_005"
+            ],
+            "series": [
+              ["65",
+              "58",
+              "49",
+              "38",
+              "30",
+              "24",
+              "20",
+              "17",
+              "11",
+              "5"]
+            ]
+          }
+  }
+}]

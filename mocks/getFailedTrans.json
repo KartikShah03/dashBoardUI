@@ -1,0 +1,42 @@
+[{
+  "request": {
+    "url": "^/getFailedTrans$",
+    "method": "GET",
+    "query": {
+
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "latency": 500,
+    "body": {
+            "labels": [
+              "IME_ICPBRM_005",
+              "CPC2_NOVASBL_001",
+              "CPC2_PMR_001 ", 
+              "CPC2_RIBS_001 ", 
+              "CPC2_PMR_003 ", 
+              "CPC2_RIBS_004 ", 
+              "CPC2_RIBS_008 ", 
+              "CPC2_PMR_002", 
+              "CPC2_RIBS_005", 
+              "IME_ICPBRM_005"
+            ],
+            "series": [
+                ["66", 
+                "54", 
+                "50", 
+                "42", 
+                "38", 
+                "30", 
+                "23", 
+                "18", 
+                "12", 
+                "5"]
+            ]
+        }
+  }
+}]
