@@ -5,9 +5,10 @@
     .controller('batchCtrl', batchCtrl);
 
   /** @ngInject */
-  function batchCtrl($scope, $window, baConfig) {
+  function batchCtrl($scope, $window, baConfig,serviceCall) {
     var layoutColors = baConfig.colors;
-    $scope.colors = [layoutColors.primary, layoutColors.warning, layoutColors.danger, layoutColors.info, layoutColors.success, layoutColors.primaryDark];
+    console.log('in batch controller');
+    /*$scope.colors = [layoutColors.primary, layoutColors.warning, layoutColors.danger, layoutColors.info, layoutColors.success, layoutColors.primaryDark];
     $scope.lineData = [
       {y: "2006", a: 100, b: 90},
       {y: "2007", a: 75, b: 65},
@@ -40,6 +41,18 @@
       {label: "In-Store Sales", value: 30},
       {label: "Mail-Order Sales", value: 20}
     ];
+*/
+    $scope.doShow = false;
+    getTransDtl().then(showTransData);
+
+    function getTransDtl(){
+      return serviceCall.getTransDtl();
+    }
+
+    function showTransData(response){
+      $scope.smartTableData = response.data.tableData;
+      $scope.doShow = true;
+    }
 
     angular.element($window).bind('resize', function () {
       //$window.Morris.Grid.prototype.redraw();

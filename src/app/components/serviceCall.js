@@ -92,6 +92,33 @@
 			return makeDBServerRequest(config,true);
 		}
 
+		function getSrchData(source,target,Sdate,Edate,state,identifier){
+			var config = {
+				method: 'GET',
+				url: '/searchData',
+				params:{
+					source: source,
+					target: target,
+					Sdate: Sdate,
+					Edate: Edate,
+					state: state,
+					identifier: identifier
+				}
+			};
+			return makeDBServerRequest(config,true);
+		}
+
+		function getTransDtl(){
+			var config={
+				method: 'GET',
+				url: '/transactionDetails',
+				params:{
+
+				}
+			};
+			return makeDBServerRequest(config,true);
+		}
+
 		return {
 			getPieDtls: getPieDtls,
 			getTotalTransactionDtls: getTotalTransactionDtls,
@@ -99,6 +126,8 @@
 			successTrans: successTrans,
 			failuerTrans: failuerTrans,
 			getTransactionTableDtls : getTransactionTableDtls
+			getSrchData: getSrchData,
+			getTransDtl: getTransDtl
 		}
 	});
 })();

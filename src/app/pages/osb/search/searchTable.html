@@ -1,0 +1,59 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Today's Transaction" ba-panel-class="with-scroll">
+        <div class="horizontal-scroll">
+  <div class="form-group select-page-size-wrap ">
+    <label>Rows on page
+      <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+              ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+      </select>
+    </label>
+  </div>
+  <table class="table" st-table="smartTableData" st-safe-src="smartTableDataActual">
+    <thead>
+    <tr class="sortable ">
+      <th st-sort="sourceSystem">Source System</th>
+      <th st-sort="targetSystem">Target System</th>
+      <th st-sort="startDate">Start Date</th>
+      <th st-sort="endDate">End Date</th>
+      <th st-sort="state">State</th>
+      <th st-sort="fileNameIdentifie">Identifier</th>
+    </tr>
+    <tr>
+      <th><input st-search="sourceSystem" placeholder="Search Source System" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="targetSystem" placeholder="Search Target System" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="startDate" placeholder="Search Start Date" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="endDate" placeholder="Search End Date" class="input-sm form-control search-input" type="search"/>
+      </th>
+      <th><input st-search="state" placeholder="Search State" class="input-sm form-control search-input" type="search"/>
+      </th>
+      <th><input st-search="fileNameIdentifie" placeholder="Search Identifier" class="input-sm form-control search-input" type="search"/>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in smartTableData">
+      <td>{{item.sourceSystem}}</td>
+      <td>{{item.targetSystem}}</td>
+      <td>{{item.startDate}}</td>
+      <td>{{item.endDate}}</td>
+      <td>{{item.state}}</td>
+      <td>{{item.fileNameIdentifie}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+      </div>
+    </div>
+  </div>

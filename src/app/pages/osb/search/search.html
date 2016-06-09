@@ -6,61 +6,58 @@
         <div ba-panel ba-panel-title="SEARCH" ba-panel-class="with-scroll ">
             
             <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <form role="form" class="col-lg-8">
+                <form role="form" ng-submit="searchResults(param)" name="searchTable" class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            
                             <div class="form-group">
                                 <label>Source System</label>
-                                <input class="form-control" ng-model="source">
+                                <input class="form-control" type = "text" ng-model="param.sources" required>
                                 
                             </div>
                             <div class="form-group">
                                 <label>Target System</label>
-                                <input class="form-control" ng-model="target">
+                                <input class="form-control" type = "text" ng-model="param.targets" required>
                             </div>
                                                    
                                                        
-                             <button type="submit" class="btn btn-default" ng-click="searchResults()">Seach</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
-                        </form>
-                    </div>
-                    <div class="col-lg-4">
-                        <form role="form" class="col-lg-8">
-                            <div class="form-group">
-                                <label>Start Date</label>
-                                <input id="input-date" type="date" class="form-control">
-                                
-                            </div>
-                            <div class="form-group">
-                                <label>End Date</label>
-                                <input id="input-date" type="date" class="form-control">
-                            </div>
+                             
                             
-                        </form>
-                    </div>
+                        </div>
+                        <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Start Date</label>
+                                    <input class="form-control" type = "date" ng-model="param.startDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>End Date</label>
+                                    <input class="form-control" type = "date" ng-model="param.endDate" required>
+                                </div>
+                                
+                        </div>
 
-                     <div class="col-lg-4">
-                        <form role="form" class="col-lg-8">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label>State</label>
 
-                               <select class="form-control">
-                                  <option>OK</option>
-                                  <option>ERROR</option>
+                               <select class="form-control" ng-modal = "param.state" ng-name="param.state">
+                                  <option value="ok">OK</option>
+                                  <option value="error">ERROR</option>
                                 </select>
 
-                                </div>
+                            </div>
                             <div class="form-group">
                                 <label>Identifier</label>
-                                <input class="form-control">
+                                <input class="form-control" type = "text" ng-model="param.identifier" required>
                             </div>
-                            
-                        </form>
+                        </div>
+                        <button type="submit" class="btn btn-default">Seach</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
                     </div>
+                </form>
                     <!-- /.col-lg-6 (nested) -->
 
                     <!-- /.col-lg-6 (nested) -->
-                </div>
                 <!-- /.row (nested) -->
             </div>
             <!-- /.panel-body -->
@@ -71,9 +68,9 @@
 </div>
 
 
-<div class="row" ng-show="doShow">
+<div class="row" ng-if="doShow">
     <div class="col-lg-12">
-        <transaction-Table></transaction-Table>
+        <search-Table></search-Table>
     </div>
 </div>  
 </section>
