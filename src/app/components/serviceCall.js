@@ -125,7 +125,7 @@
 			getTodayTransactionDtls: getTodayTransactionDtls,
 			successTrans: successTrans,
 			failuerTrans: failuerTrans,
-			getTransactionTableDtls : getTransactionTableDtls
+			getTransactionTableDtls : getTransactionTableDtls,
 			getSrchData: getSrchData,
 			getTransDtl: getTransDtl
 		}
