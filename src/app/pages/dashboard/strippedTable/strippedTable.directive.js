@@ -9,7 +9,10 @@
     return {
       restrict: 'E',
       controller: 'StrippedTableCtrl',
-      templateUrl: 'app/pages/dashboard/strippedTable/strippedTable.html'
+      templateUrl: 'app/pages/dashboard/strippedTable/strippedTable.html',
+      scope: {
+      text: "@text"
+    }
     };
   }
 })();

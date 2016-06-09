@@ -1,15 +1,13 @@
 <div class="vertical-scroll">
-  <table class="table table-striped">
+  <table class="table table-bordered">
     <thead>
     <tr>
-      <th class="table-id">#</th>
       <th>TYPE</th>
       <th>COUNT</th>
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="item in smartTableData">
-      <td class="table-id">{{item.order}}</td>
+    <tr ng-repeat="item in smartTableDatas">
       <td>{{item.label}}</td>
       <td>{{item.value}}</td>
     </tr>

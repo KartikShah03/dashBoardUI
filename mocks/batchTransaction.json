@@ -1,0 +1,33 @@
+[{
+  "request": {
+    "url": "^/batchTransactionDtls$",
+    "method": "GET",
+    "query": {
+
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "latency": 500,
+    "body": {
+      "transactions":[{
+            "value": "30000",
+            "color": "dashboardColors.white",
+            "highlight": "colorHelper.shade(dashboardColors.white, 15)",
+            "label": "Success",
+            "percentage": "60",
+            "order": "1"
+          }, {
+            "value": "20000",
+            "color": "dashboardColors.blueStone",
+            "highlight": "colorHelper.shade(dashboardColors.blueStone, 15)",
+            "label": "Failuer",
+            "percentage": "40",
+            "order": "2"
+          }]
+    }
+  }
+}]

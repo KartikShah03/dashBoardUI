@@ -13,7 +13,7 @@
 
     transactionCount().then(getCount);
     function transactionCount(){
-      return serviceCall.getTotalTransactionDtls();
+      return serviceCall.getTotalTransactionDtls($scope.text);
     }
     function getCount(response){
       rspsObj = response.data.transactions;
@@ -37,7 +37,7 @@
               return (rspsObj[5] < b[5]) ? -1 : 1;
           }
       }
-      $scope.smartTableData = rspsObj;
+      $scope.smartTableDatas = rspsObj;
       
     }
 

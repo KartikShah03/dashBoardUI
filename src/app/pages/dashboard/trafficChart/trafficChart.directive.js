@@ -9,7 +9,10 @@
     return {
       restrict: 'E',
       controller: 'TrafficChartCtrl',
-      templateUrl: 'app/pages/dashboard/trafficChart/trafficChart.html'
+      templateUrl: 'app/pages/dashboard/trafficChart/trafficChart.html',
+      scope: {
+      text: "@text"
+    }
     };
   }
 })();

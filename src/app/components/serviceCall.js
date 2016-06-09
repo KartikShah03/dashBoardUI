@@ -37,10 +37,10 @@
 			return makeDBServerRequest(config,true);
 		}
 
-		function getTotalTransactionDtls(){
+		function getTotalTransactionDtls(msgUrl){
 			var config={
 				method: 'GET',
-				url: '/totalTransactionDtls',
+				url: '/'+msgUrl,
 				params:{
 
 				}
@@ -52,6 +52,17 @@
 			var config={
 				method: 'GET',
 				url: '/todayTransactionDtls',
+				params:{
+
+				}
+			};
+			return makeDBServerRequest(config,true);
+		}
+
+		function getTransactionTableDtls(){
+			var config={
+				method: 'GET',
+				url: '/transactionTableDtls',
 				params:{
 
 				}
@@ -86,7 +97,8 @@
 			getTotalTransactionDtls: getTotalTransactionDtls,
 			getTodayTransactionDtls: getTodayTransactionDtls,
 			successTrans: successTrans,
-			failuerTrans: failuerTrans
+			failuerTrans: failuerTrans,
+			getTransactionTableDtls : getTransactionTableDtls
 		}
 	});
 })();
