@@ -75,7 +75,7 @@
       }
 
       function showData(response){
-        $scope.smartTableDataActual = response.data.tableData;
+        $scope.smartTableDataActual = response.data.transactions;
         $scope.smartTableData =  [].concat($scope.smartTableDataActual);
         $scope.doShow = true;
       }
