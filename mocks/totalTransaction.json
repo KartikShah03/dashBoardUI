@@ -18,14 +18,14 @@
             "color": "dashboardColors.white",
             "highlight": "colorHelper.shade(dashboardColors.white, 15)",
             "label": "Success",
-            "percentage": "90",
+            "percentage": "70",
             "order": "1"
           }, {
             "value": "5000",
             "color": "dashboardColors.blueStone",
             "highlight": "colorHelper.shade(dashboardColors.blueStone, 15)",
             "label": "Failuer",
-            "percentage": "10",
+            "percentage": "30",
             "order": "2"
           }]
     }

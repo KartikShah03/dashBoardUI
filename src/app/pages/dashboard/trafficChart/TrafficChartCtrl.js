@@ -11,6 +11,7 @@
     var dashboardColors = baConfig.colors.dashboard;
     
     var rspsObj=[];
+    var totalTrans = 0;
 
     var myArray=new Array();
     $.each(dashboardColors, function(key, value) { 
@@ -23,11 +24,13 @@
     }
     function getCount(response){
       rspsObj = response.data.transactions;
-      $scope.doughnutData = rspsObj;
       for(var i=0;i<rspsObj.length;i++){
         rspsObj[i].highlight = colorHelper.shade(myArray[i], 15);
-          rspsObj[i].color = myArray[i];
+        rspsObj[i].color = myArray[i];
+        totalTrans = Number(totalTrans) + Number(rspsObj[i].value);
+        $scope.totalTransaction = Number(totalTrans);
       }
+      $scope.doughnutData = rspsObj;
       var ctx = document.getElementById('chart-area').getContext('2d');
       window.myDoughnut = new Chart(ctx).Doughnut($scope.doughnutData, {
         segmentShowStroke: false,

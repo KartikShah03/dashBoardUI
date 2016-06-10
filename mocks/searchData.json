@@ -1,18 +1,13 @@
 [{
   "request": {
-    "url": "^/searchData$",
-    "method": "GET",
+    "url": "^/transactionTableDtls$",
+    "method": "POST",
     "query": {
-      "source": "source1",
-      "target": "target1",
-      "Sdate": "01/01/2016",
-      "Edate": "01/12/2016",
-      "state": "ok",
-      "identifier": "identifier1"
+
     }
   },
   "response": {
-    "status": 200,
+    "status": 201,
     "headers": {
       "content-type": "application/json"
     },

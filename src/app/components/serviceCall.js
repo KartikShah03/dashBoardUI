@@ -61,10 +61,17 @@
 
 		function getTransactionTableDtls(){
 			var config={
-				method: 'GET',
+				method: 'POST',
 				url: '/transactionTableDtls',
-				params:{
-
+				data:{
+					serviceId: '',
+					sourceSystem: '',
+					targetSystem: '',
+					startDate: '',
+					endDate: '',
+					state: '',
+					fileNameIdentifie: '',
+					date: ''
 				}
 			};
 			return makeDBServerRequest(config,true);
@@ -94,15 +101,17 @@
 
 		function getSrchData(source,target,Sdate,Edate,state,identifier){
 			var config = {
-				method: 'GET',
-				url: '/searchData',
-				params:{
-					source: source,
-					target: target,
-					Sdate: Sdate,
-					Edate: Edate,
+				method: 'POST',
+				url: '/transactionTableDtls',
+				data:{
+					serviceId: '',
+					sourceSystem: source,
+					targetSystem: target,
+					startDate: Sdate,
+					endDate: Edate,
 					state: state,
-					identifier: identifier
+					fileNameIdentifie: identifier,
+					date: ''
 				}
 			};
 			return makeDBServerRequest(config,true);

@@ -1,13 +1,13 @@
 [{
   "request": {
     "url": "^/transactionTableDtls$",
-    "method": "GET",
+    "method": "POST",
     "query": {
 
     }
   },
   "response": {
-    "status": 200,
+    "status": 201,
     "headers": {
       "content-type": "application/json"
     },
