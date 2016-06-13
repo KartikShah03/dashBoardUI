@@ -3,6 +3,6 @@
     "ApiUrl": "http://localhost:8882"
   },
   "rahulLocal": {
-    "ApiUrl": "http://localhost:8090/dashboardMW/"
+    "ApiUrl": "http://localhost:8090/dashboardMW"
   }
 }

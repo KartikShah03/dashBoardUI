@@ -37,7 +37,7 @@
 
     $scope.simpleBarOptions = {
       height: "300px",
-      width: "550px",
+      fullWidth:true,
       reverseData: true,
       horizontalBars: true,
       axisY: {
