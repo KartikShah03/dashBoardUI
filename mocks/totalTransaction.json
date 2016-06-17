@@ -13,21 +13,10 @@
     },
     "latency": 500,
     "body": {
-      "transactions":[{
-            "value": "45000",
-            "color": "dashboardColors.white",
-            "highlight": "colorHelper.shade(dashboardColors.white, 15)",
-            "label": "Success",
-            "percentage": "70",
-            "order": "1"
-          }, {
-            "value": "5000",
-            "color": "dashboardColors.blueStone",
-            "highlight": "colorHelper.shade(dashboardColors.blueStone, 15)",
-            "label": "Failuer",
-            "percentage": "30",
-            "order": "2"
-          }]
+      "transactions":[
+            {"name":"Success","value":"45000"},
+            {"name":"Failure","value":"25000"}
+            ]
     }
   }
 }]
