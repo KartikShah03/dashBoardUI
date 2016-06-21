@@ -5,20 +5,28 @@
     .controller('LoginPageCtrl',LoginPageCtrl);
 
   /** @ngInject */
-  function LoginPageCtrl($scope, $state,$http, baSidebarService) {
+  function LoginPageCtrl($scope, $state,$http, baSidebarService, authorization) {
 
     $scope.loginDiv = true;
 
     $scope.login = function () {
-      if("Dashboard" == $scope.pwd){
+      authorization.login($scope.usermail,$scope.pwd).then(authenticate, failauthenicate);
+      
+    };
+
+    function authenticate(){
+      if(authorization.getAuthToken()){
         console.log($scope.pwd)
-        console.log('before');
-        $http.get("http://demo0495135.mockable.io/menuitems")
+         $http.get("http://demo0495135.mockable.io/menuitems")
          .then(function(response){
           baSidebarService.setMenuList(response.data);
           $scope.$parent.loginDiv = false;
         });
         }
-    };
+    }
+
+    function failauthenicate(){
+      console.log("authetication failed...");
+    }
   }
 })();

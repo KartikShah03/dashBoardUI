@@ -1,6 +1,6 @@
 [{
   "request": {
-    "url": "^/transactionTableDtls$",
+    "url": "^/secured/search/osb/transactionTableDtls$",
     "method": "POST",
     "query": {
 

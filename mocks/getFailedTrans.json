@@ -1,6 +1,6 @@
 [{
   "request": {
-    "url": "^/getFailedTrans$",
+    "url": "^/secured/getFailedTrans$",
     "method": "GET",
     "query": {
 

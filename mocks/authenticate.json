@@ -1,0 +1,19 @@
+[{
+  "request": {
+    "url": "^/login$",
+    "method": "POST",
+    "query": {
+
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "latency": 100,
+    "body": {
+      "token": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE0NjY0MjI4MjMsInN1YiI6ImFkbWluIiwiYXVkaWVuY2UiOiJ3ZWIiLCJjcmVhdGVkIjoxNDY1ODE4MDIzMjY0fQ.8hG1X16d2FZP0as4ZuIfCW0rLhipqZom92onC-Q01fPnUK9vHuxcNMiBRr4cuG0vX5F98oMqwY-4N-2KvMOfmw"
+    }
+  }
+}]

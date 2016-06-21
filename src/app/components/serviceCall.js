@@ -3,6 +3,9 @@
 	angular.module('Dashboard')
 	.service('serviceCall',function($http, ApiUrl, $q){
 		var SERVER_URL = ApiUrl;
+		 var baseRequestConfig = {
+
+		 };
 		var authTokenAvailable = $q.defer();
 		function makeDBServerRequest(customProps,notRequireAuthToken){
 			var config ={
@@ -10,7 +13,7 @@
 			};
 
 			if(notRequireAuthToken){
-				angular.extend(config,customProps);
+				angular.extend(config, baseRequestConfig, customProps);
 				config.url = SERVER_URL + customProps.url;
 
 				return $http(config);
@@ -18,13 +21,42 @@
 			else{
 				return authTokenAvailable.promise
 				.then(function(){
-					angular.extend(config,customProps);
-					config.url = SERVER_URL + customProps.url;
+					angular.extend(config, baseRequestConfig, customProps);
+					config.url = SERVER_URL + '/secured' + customProps.url;
 
 					return $http(config);
 				});
 			}
 		}
+
+		function requestAuthorization(username, password) {
+        var config = {
+          method: 'POST',
+          url: '/login',
+          data:{
+					username: username,
+					password: password
+					
+				}
+        };
+        return makeDBServerRequest(config,true);
+      }
+
+      function storeAuthToken(token) {
+        // USE: fires as a promise handler from Authorization service
+        // token should be the value the promise resolves with.
+        var authToken = token;
+        baseRequestConfig.headers = {"X-Auth-Token": authToken};
+        authTokenAvailable.resolve(token); //token is available now.. we can proceed with other calls.
+      }
+
+      function flushAuthToken(){
+        if(!baseRequestConfig.headers){
+          baseRequestConfig.headers = {};
+        }
+        baseRequestConfig.headers.Authorization = null;
+        authTokenAvailable = $q.defer();// reset promise
+      }
 
 		function getPieDtls(){
 			var config ={
@@ -34,7 +66,7 @@
 
 				}
 			};
-			return makeDBServerRequest(config,true);
+			return makeDBServerRequest(config,false);
 		}
 
 		function getTotalTransactionDtls(msgUrl){
@@ -45,7 +77,7 @@
 
 				}
 			};
-			return makeDBServerRequest(config,true);
+			return makeDBServerRequest(config,false);
 		}
 
 		function getTodayTransactionDtls(){
@@ -56,27 +88,10 @@
 
 				}
 			};
-			return makeDBServerRequest(config,true);
+			return makeDBServerRequest(config,false);
 		}
 
-		function getTransactionTableDtls(){
-			var config={
-				method: 'POST',
-				url: '/transactionTableDtls',
-				data:{
-					serviceId: '',
-					sourceSystem: '',
-					targetSystem: '',
-					startDate: '',
-					endDate: '',
-					state: '',
-					fileNameIdentifie: '',
-					date: ''
-				}
-			};
-			return makeDBServerRequest(config,true);
-		}
-
+		
 		function successTrans(){
 			var config={
 				method: 'GET',
@@ -85,7 +100,7 @@
 
 				}
 			};
-			return makeDBServerRequest(config,true);
+			return makeDBServerRequest(config,false);
 		}
 
 		function failuerTrans(){
@@ -96,13 +111,13 @@
 
 				}
 			};
-			return makeDBServerRequest(config,true);
+			return makeDBServerRequest(config,false);
 		}
 
 		function getSrchData(source,target,Sdate,Edate,state,identifier){
 			var config = {
 				method: 'POST',
-				url: '/transactionTableDtls',
+				url: '/search/osb/transactionTableDtls',
 				data:{
 					serviceId: '',
 					sourceSystem: source,
@@ -111,10 +126,11 @@
 					endDate: Edate,
 					state: state,
 					fileNameIdentifie: identifier,
-					date: ''
+					date: '',				
+					totalRecord:'500'
 				}
 			};
-			return makeDBServerRequest(config,true);
+			return makeDBServerRequest(config,false);
 		}
 
 		function getTransDtl(){
@@ -125,7 +141,7 @@
 
 				}
 			};
-			return makeDBServerRequest(config,true);
+			return makeDBServerRequest(config,false);
 		}
 
 		return {
@@ -134,9 +150,11 @@
 			getTodayTransactionDtls: getTodayTransactionDtls,
 			successTrans: successTrans,
 			failuerTrans: failuerTrans,
-			getTransactionTableDtls : getTransactionTableDtls,
 			getSrchData: getSrchData,
-			getTransDtl: getTransDtl
+			getTransDtl: getTransDtl,
+			storeAuthToken: storeAuthToken,
+	        flushAuthToken: flushAuthToken,
+	        requestAuthorization: requestAuthorization
 		}
 	});
 })();

@@ -1,6 +1,6 @@
 [{
   "request": {
-    "url": "^/pie$",
+    "url": "^/secured/pie$",
     "method": "GET",
     "query": {
 

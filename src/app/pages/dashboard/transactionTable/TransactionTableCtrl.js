@@ -11,7 +11,7 @@
 
     transactionCount().then(getCount);
     function transactionCount(){
-      return serviceCall.getTransactionTableDtls();
+      return serviceCall.getSrchData('','','','','','');
     }
     function getCount(response){
        $scope.smartTableDataActual = response.data.transactions;

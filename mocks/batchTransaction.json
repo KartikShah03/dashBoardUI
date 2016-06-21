@@ -1,6 +1,6 @@
 [{
   "request": {
-    "url": "^/batchTransactionDtls$",
+    "url": "^/secured/batchTransactionDtls$",
     "method": "GET",
     "query": {
 

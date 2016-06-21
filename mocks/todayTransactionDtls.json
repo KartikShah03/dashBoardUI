@@ -1,6 +1,6 @@
 [{
   "request": {
-    "url": "^/todayTransactionDtls$",
+    "url": "^/secured/todayTransactionDtls$",
     "method": "GET",
     "query": {
 
