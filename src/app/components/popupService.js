@@ -18,8 +18,20 @@
         };
         return $modal.open(config).result;
       }
+
+      function confirmLogout() {
+        var config = {
+          animation: true,
+          templateUrl: 'app/components/modals/confirmLogout.html',
+          controller: 'ModalCtrl',
+          size: 'sm',
+        };
+        return $modal.open(config).result;
+      }
+
       return {
-        invalid: invalid
+        invalid: invalid,
+        confirmLogout: confirmLogout
       };
   });
 })();

@@ -1,57 +1,47 @@
 <section ng-controller="searchCtrl">
- 
 <!-- /.row -->
 <div class="row">
     <div class="col-lg-12">
         <div ba-panel ba-panel-title="SEARCH" ba-panel-class="with-scroll ">
             
             <div class="panel-body">
-                <form role="form" ng-submit="searchResults(param)" name="searchTable" class="col-lg-12">
+                <form role="form"  name="searchTable" class="col-lg-12" ng-controller="searchCtrl">
                     <div class="row">
-                        <div class="col-lg-4">
-                            
-                            <div class="form-group">
-                                <label>Source System</label>
-                                <input class="form-control" type = "text" ng-model="sources">
-                                
-                            </div>
-                            <div class="form-group">
-                                <label>Target System</label>
-                                <input class="form-control" type = "text" ng-model="param.targets">
-                            </div>
-                                                   
-                                                       
-                             
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>Source System</label>
+                            <input class="form-control" ng-model="source">
                             
                         </div>
-                        <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Start Date</label>
-                                    <input class="form-control" type = "date" ng-model="startDate">
-                                </div>
-                                <div class="form-group">
-                                    <label>End Date</label>
-                                    <input class="form-control" type = "date" ng-model="endDate">
-                                </div>
-                                
+                        <div class="form-group">
+                            <label>Target System</label>
+                            <input class="form-control" ng-model="target">
                         </div>
-
-                        <div class="col-lg-4">
+                    </div>
+                    <div class="col-lg-4">
                             <div class="form-group">
-                                <label>State</label>
-
-                               <select class="form-control" ng-modal = "state" ng-name="param.state">
-                                  <option value="ok">OK</option>
-                                  <option value="error">ERROR</option>
-                                </select>
-
+                                <label>Start Date</label>
+                                <input class="form-control" type = "date" ng-model="startDate">
                             </div>
                             <div class="form-group">
-                                <label>Identifier</label>
-                                <input class="form-control" type = "text" ng-model="param.identifier">
+                                <label>End Date</label>
+                                <input class="form-control" type = "date" ng-model="endDate">
                             </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>State</label>
+                           <select class="form-control" ng-model="state">
+                              <option value="OK">OK</option>
+                              <option value="ERROR">ERROR</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn btn-default">Seach</button>
+                        <div class="form-group">
+                            <label>Identifier</label>
+                            <input class="form-control" ng-model="identifier">
+                        </div>
+                        </div>
+                        <button type="submit" class="btn btn-default" ng-click="searchResults()">Seach</button>
                         <button type="reset" class="btn btn-default">Reset</button>
                     </div>
                 </form>

@@ -19,30 +19,23 @@
       return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
     }
 
-    $scope.searchResults = function(param){
+    $scope.searchResults = function(){
       $scope.doShow = false;
-      console.log ('source is::    '+param.sources);
-      console.log ('target is::    '+param.targets);
-      console.log ('startDate is::    '+param.startDate);
-      console.log ('endDate is::    '+param.endDate);
-      console.log ('state is::    '+param.state);
-      console.log ('state is::    '+$scope.state);
-      console.log ('identifier is::    '+param.identifier);
 
-      var source = param.sources;
-      var target = param.targets;
-      var Sdate = param.startDate;
-      var Edate = param.endDate;
-      var state = "ok";
-      var identifier = param.identifier;
+      var source = $scope.source;
+      var target = $scope.target;
+      var startDate = $scope.startDate;
+      var endDate = $scope.endDate;
+      var state = $scope.state;
+      var identifier = $scope.identifier;
 
-      Sdate = convertDate(Sdate);
-      Edate = convertDate(Edate);
+      startDate = convertDate(startDate);
+      endDate = convertDate(endDate);
 
       getDtls().then(showData);
 
       function getDtls(){
-        return serviceCall.getSrchData(source,target,Sdate,Edate,state,identifier);
+        return serviceCall.getSrchData(source,target,startDate,endDate,state,identifier);
       }
 
       function showData(response){
