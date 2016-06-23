@@ -6,11 +6,17 @@
 
   /** @ngInject */
   function searchCtrl($scope, $window, baConfig,serviceCall) {
-    var layoutColors = baConfig.colors;
-    $scope.colors = [layoutColors.primary, layoutColors.warning, layoutColors.danger, layoutColors.info, layoutColors.success, layoutColors.primaryDark];
+    var publicInterface;
     var date = new Date();
-    $scope.endDate = date;
-    //$scope.sources = "test source";
+    var searchParam = {
+      sources : '',
+      targets : '',
+      startDate : '',
+      endDate : date,
+      state : '',
+      identifier : ''
+    }
+    
     $scope.doShow = false;
 
     function convertDate(inputFormat) {
@@ -19,23 +25,22 @@
       return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
     }
 
-    $scope.searchResults = function(){
+    $scope.searchResults = function(param){
       $scope.doShow = false;
+      var source = searchParam.sources;
+      var target = searchParam.targets;
+      var Sdate = searchParam.startDate;
+      var Edate = searchParam.endDate;
+      var state = searchParam.state;
+      var identifier = searchParam.identifier;
 
-      var source = $scope.source;
-      var target = $scope.target;
-      var startDate = $scope.startDate;
-      var endDate = $scope.endDate;
-      var state = $scope.state;
-      var identifier = $scope.identifier;
-
-      startDate = convertDate(startDate);
-      endDate = convertDate(endDate);
+      Sdate = convertDate(Sdate);
+      Edate = convertDate(Edate);
 
       getDtls().then(showData);
 
       function getDtls(){
-        return serviceCall.getSrchData(source,target,startDate,endDate,state,identifier);
+        return serviceCall.getSrchData(source,target,Sdate,Edate,state,identifier);
       }
 
       function showData(response){
@@ -46,9 +51,14 @@
 
     }
 
-    angular.element($window).bind('resize', function () {
-      //$window.Morris.Grid.prototype.redraw();
-    });
+    publicInterface = {
+        param : searchParam
+      };
+      angular.extend($scope, publicInterface);
+
+    // angular.element($window).bind('resize', function () {
+    //   //$window.Morris.Grid.prototype.redraw();
+    // });
   }
 
 })();

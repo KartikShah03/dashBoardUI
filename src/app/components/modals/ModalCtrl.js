@@ -3,7 +3,7 @@
 
   angular
     .module('Dashboard')
-    .controller('ModalCtrl', function ModalCtrl($scope, $modalInstance, $state,$window) {
+    .controller('ModalCtrl', function ModalCtrl($scope, $modalInstance, $state,$window, serviceCall) {
     	var publicInterface;
     	
     	 function close() {
@@ -12,6 +12,7 @@
 
         function logout(){
           $scope.$parent.loginDiv = true;
+          serviceCall.flushAuthToken();
           $window.location.href = '#/dashboard';
           $window.location.reload();
           console.log('2nd $scope.loginDiv::   '+$scope.loginDiv);
