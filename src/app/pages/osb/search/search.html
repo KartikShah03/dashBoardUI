@@ -21,14 +21,24 @@
                             </div>
                         </div>
                         <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Start Date</label>
-                                    <input class="form-control" type = "date" ng-model="param.startDate">
-                                </div>
-                                <div class="form-group">
-                                    <label>End Date</label>
-                                    <input class="form-control" type = "date" ng-model="param.endDate">
-                                </div>
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <p class="input-group">
+                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="param.startDate" is-open="param.opened"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+                                <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <p class="input-group">
+                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="param.endDate" is-open="param.opened1"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+                                <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open1($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                </p>
+                            </div>
                         </div>
 
                         <div class="col-lg-4">

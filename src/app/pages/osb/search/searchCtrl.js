@@ -25,6 +25,36 @@
       return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
     }
 
+        // date related 
+
+  // Disable weekend selection
+  $scope.disabled = function(date, mode) {
+    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+  };
+
+  $scope.toggleMin = function() {
+    $scope.minDate = $scope.minDate ? null : new Date();
+  };
+  $scope.toggleMin();
+
+  $scope.open = function($event) {
+    $scope.param.opened = true;
+  };
+
+  $scope.open1 = function($event) {
+    $scope.param.opened1 = true;
+ };
+
+  $scope.dateOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+  };
+
+  $scope.formats = ['dd/MM/yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.format = $scope.formats[0];
+
+  //end date related..
+    
     $scope.searchResults = function(param){
       $scope.doShow = false;
       var source = searchParam.sources;

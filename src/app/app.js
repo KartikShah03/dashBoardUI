@@ -3,6 +3,7 @@
 angular.module('Dashboard', [
   'ngAnimate',
   'ui.bootstrap',
+  'ui.bootstrap.datetimepicker',
   'ui.sortable',
   'ui.router',
   'ngTouch',

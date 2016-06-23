@@ -279,7 +279,7 @@ a.al-sidebar-list-link {
     @include sidebar-hidden();
   }
   .al-main {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
   .al-footer {
     padding-left: 0;
