@@ -6,7 +6,8 @@
     'Dashboard.pages.dashboard',
     'Dashboard.pages.charts',
     'Dashboard.pages.login',
-    'Dashboard.pages.osb'
+    'Dashboard.pages.osb',
+    'Dashboard.pages.ijoin'
   ])
       .config(routeConfig);
 

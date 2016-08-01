@@ -17,7 +17,7 @@
     function authenticate(){
       if(authorization.getAuthToken()){
         console.log($scope.pwd)
-         $http.get("http://demo0495135.mockable.io/menuitems")
+         $http.get("https://demo3171562.mockable.io/sidemenu")
          .then(function(response){
           baSidebarService.setMenuList(response.data);
           $scope.$parent.loginDiv = false;
