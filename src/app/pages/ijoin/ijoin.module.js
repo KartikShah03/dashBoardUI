@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('Dashboard.pages.ijoin', [])
+  angular.module('Dashboard.pages.ijoin', ['googlechart'])
       .config(routeConfig);
 
   /** @ngInject */

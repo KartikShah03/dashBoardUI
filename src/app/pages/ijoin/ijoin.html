@@ -1,21 +1,18 @@
 <div class="row ">
   <div class="col-lg-6 col-md-8" ng-controller="ijoinCtrl">
-    <div ba-panel ba-panel-title="Orders VS SLOF to orders" ba-panel-class="with-scroll ">
-      <canvas id="bar" class="chart chart-bar"
-              chart-data="orderData" chart-labels="orderLabels" chart-series="series">
-      </canvas>
+    <div ba-panel ba-panel-title="Orders Submited" ba-panel-class="with-scroll ">
+      <div google-chart chart="OrderChart" style="height:250px; width:500px;"></div>
     </div>
   </div>
 
   <div class="col-lg-6 col-md-8" ng-controller="ijoinCtrl">
-    <div ba-panel ba-panel-title="Percentage view" ba-panel-class="with-scroll ">
-      <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
-              chart-legend="false" chart-series="series"></canvas>
+    <div ba-panel ba-panel-title="Percentage View" ba-panel-class="with-scroll ">
+      <div google-chart chart="pageView" style="height:250px; width:500px;"></div>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-6 col-md-6 col-sm-8" ng-controller="ijoinCtrl">
+  <!-- <div class="col-lg-6 col-md-6 col-sm-8" ng-controller="ijoinCtrl">
       <div ba-panel ba-panel-title="SLOF Categorization" ba-panel-class="with-scroll">
         <div
             donut-chart
@@ -23,5 +20,17 @@
             donut-colors='colors'>
         </div>
       </div>
+
+    </div> -->
+    <div class="col-lg-6 col-md-8" ng-controller="ijoinCtrl">
+    <div ba-panel ba-panel-title="SLOF Categorization" ba-panel-class="with-scroll ">
+      <div google-chart chart="slofChart" style="height:250px; width:500px;"></div>
     </div>
+  </div>
+
+  <div class="col-lg-6 col-md-8" ng-controller="ijoinCtrl">
+    <div ba-panel ba-panel-title="SLOF to Orders Converted" ba-panel-class="with-scroll ">
+      <div google-chart chart="slofOrderChart" style="height:250px; width:500px;"></div>
+    </div>
+  </div>
 </div>
