@@ -1,6 +1,6 @@
 # Dashboard Angular admin panel front-end framework
 
-Customizable admin panel framework made with :heart: by [Kartik and Suresh]
+Customizable admin panel framework made with :heart: 
 
 ### Documentation
 Please find the installation guide provided by us.
